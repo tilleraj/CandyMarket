@@ -21,11 +21,10 @@ GO
 -- Create the table in the specified schema
 CREATE TABLE [dbo].[Candy]
 (
-    [Id] INT NOT NULL PRIMARY KEY, -- Primary Key column
+    [Id] INT IDENTITY(1,1) PRIMARY KEY, -- Primary Key column
     [Name] NVARCHAR(50) NOT NULL,
 	[Manufacturer] NVARCHAR(50) NOT NULL,
 	[Category] NVARCHAR(50) NOT NULL,
     -- Specify more columns here
 );
 GO
-
