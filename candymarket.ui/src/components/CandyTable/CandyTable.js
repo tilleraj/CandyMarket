@@ -22,8 +22,9 @@ class CandyTable extends React.Component {
     candyData.getCandy()
       .then((candies) => {
         let myCandies = [...candies];
+        console.log(myCandies);
         this.setState({ candies: myCandies });
-      })
+      })  
       .catch(error => console.error('could not get candies', error));
   }
 
@@ -36,11 +37,13 @@ class CandyTable extends React.Component {
       <CandyRow
         key={candy.id}
         candy={candy}
+        callBack={this.updateCandyData}
       />
     ));
     return (
       <div className="Candies">
         <h2>Candy Board</h2>
+        <button onClick={() => this.updateCandyData()}>Update Data</button>
         <CandyRowNew callBack={this.updateCandyData} />
         <Table striped responsive>
           <thead>

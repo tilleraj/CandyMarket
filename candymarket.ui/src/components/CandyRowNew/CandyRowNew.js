@@ -44,10 +44,6 @@ class CandyRowNew extends React.Component {
       .catch(error => console.error('unable to save candy', error));
   }
 
-  eatCandy(id) {
-    console.log(`Attempt to eat candy with id ${id}`);
-  }
-
   render() {
     const { newCandy } = this.state;
     return (

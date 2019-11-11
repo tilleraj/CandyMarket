@@ -6,15 +6,15 @@ import './CandyRow.scss';
 class CandyRow extends React.Component {
 
   eatCandy(id){
-    console.log(`Attempt to eat candy with id ${id}`);
-    candyData.deleteCandy(this.props.candy);
+    candyData.deleteCandy(this.props.candy)
+    .then(this.props.callBack())
+    .catch(error => console.error('unable to eat candy', error));
   }
 
   render() {
     const { candy } = this.props;
     return (
       <tr>
-        {/* <td>{candy.Id}</td> */}
         <td>{candy.name}</td>
         <td>{candy.manufacturer}</td>
         <td>{candy.category}</td>

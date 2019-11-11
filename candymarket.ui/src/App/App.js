@@ -32,7 +32,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
-          <div className="container mt-5">
+          <div className="container mt-5 mb-5">
             <div className="row">
               <Switch>
                 {/* <PublicRoute path="/auth" component={Auth} authed={authed} /> */}
