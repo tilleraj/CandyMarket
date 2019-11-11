@@ -1,45 +1,39 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import {
   Table,
 } from 'reactstrap';
 
-import rideShape from '../../helpers/props/rideShape';
-import RideRow from '../RideRow/RideRow';
+import CandyRow from '../CandyRow/CandyRow';
 
-import './Rides.scss';
+import './CandyTable.scss';
 
-class Rides extends React.Component {
-  static propTypes = {
-    rides: PropTypes.arrayOf(rideShape.rideShape),
-  }
+class CandyTable extends React.Component {
 
   render() {
-    const rideComponents = this.props.rides.map(ride => (
-      <RideRow
-        key={ride.id}
-        ride={ride}
+    const candyComponents = this.props.candies.map(candy => (
+      <CandyRow
+        key={candy.id}
+        candy={candy}
       />
     ));
     return (
-      <div className="Rides">
-        <h2>Ride Board</h2>
-        <p>Rides you're in are shown in this color: <span className="colorKey">█</span></p>
+      <div className="Candies">
+        <h2>Candy Board</h2>
         <Table striped responsive>
           <thead>
             <tr>
-              <th scope="col">Organizer</th>
-              <th scope="col">Lyft/Uber?</th>
-              <th scope="col">Origin</th>
-              <th scope="col">Destination</th>
-              <th scope="col">Departure Time</th>
-              <th scope="col">Open Seats</th>
-              <th scope="col">View</th>
+              {/* <th scope="col">ID</th> */}
+              <th scope="col">Name</th>
+              <th scope="col">Manufacturer</th>
+              <th scope="col">Category</th>
+              <th scope="col">Eat</th>
+              {/* <th scope="col">Donate</th> */}
+              {/* <th scope="col">Trade</th> */}
             </tr>
           </thead>
           <tbody>
-            {rideComponents}
+            {candyComponents}
           </tbody>
         </Table>
       </div>
@@ -47,4 +41,4 @@ class Rides extends React.Component {
   }
 }
 
-export default Rides;
+export default CandyTable;
