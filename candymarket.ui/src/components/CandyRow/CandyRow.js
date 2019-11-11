@@ -7,7 +7,7 @@ class CandyRow extends React.Component {
 
   eatCandy(id){
     candyData.deleteCandy(this.props.candy)
-    .then(this.props.callBack())
+    .then(this.props.callBack)
     .catch(error => console.error('unable to eat candy', error));
   }
 

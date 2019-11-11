@@ -39,8 +39,9 @@ class CandyRowNew extends React.Component {
   formSubmit = (e) => {
     e.preventDefault();
     const saveMe = { ...this.state.newCandy };
+    this.setState({newCandy: defaultCandy});
     candyData.postCandy(saveMe)
-      .then(this.props.callBack())
+      .then(this.props.callBack)
       .catch(error => console.error('unable to save candy', error));
   }
 
