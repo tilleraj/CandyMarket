@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import candyData from '../../data/candyData';
 
 import './CandyRow.scss';
 
@@ -7,6 +7,7 @@ class CandyRow extends React.Component {
 
   eatCandy(id){
     console.log(`Attempt to eat candy with id ${id}`);
+    candyData.deleteCandy(this.props.candy);
   }
 
   render() {

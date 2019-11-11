@@ -12,6 +12,11 @@ const getCandy = () => new Promise((resolve, reject) => {
     });
 });
 
+const postCandy = newCandy => axios.post(`${baseUrl}/candy`, newCandy);
+const deleteCandy = candyToDelete => axios.delete(`${baseUrl}/candy/${candyToDelete.id}/eat`,candyToDelete);
+
 export default {
-  getCandy
+  getCandy,
+  postCandy,
+  deleteCandy
 }
