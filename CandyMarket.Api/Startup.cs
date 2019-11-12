@@ -28,6 +28,8 @@ namespace CandyMarket.Api
         {
             services.AddControllers();
             services.AddScoped<ICandyRepository, CandyRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserCandyRepository, UserCandyRepository>();
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
                 builder.AllowAnyOrigin()

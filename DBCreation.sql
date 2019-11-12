@@ -54,4 +54,52 @@ VALUES
 ('Twix', 'Mars', 'Chocolate')
 GO
 
-select * from candy
+-- Create the table in the specified schema
+CREATE TABLE [dbo].[User]
+(
+    [Id] INT IDENTITY(1,1) PRIMARY KEY, -- Primary Key column
+    [FirstName] NVARCHAR(50) NOT NULL,
+	[LastName] NVARCHAR(50) NOT NULL,
+    -- Specify more columns here
+);
+GO
+
+-- Insert rows into table 'Candy' in schema '[dbo]'
+INSERT INTO [dbo].[User]
+( -- Columns to insert data into
+ [FirstName], [LastName]
+)
+VALUES
+('Donald', 'Duck'),
+('Fred', 'Flinstone'),
+('Lois', 'Lane')
+GO
+
+-- Create the table in the specified schema
+CREATE TABLE [dbo].[UserCandy]
+(
+    [Id] INT IDENTITY(1,1) PRIMARY KEY, -- Primary Key column
+    [UserId] INT NOT NULL
+        FOREIGN KEY (UserId)
+        REFERENCES [User] (Id),
+    [CandyId] INT NOT NULL
+        FOREIGN KEY (CandyId)
+        REFERENCES Candy (Id)
+);
+GO
+
+-- Insert rows into table 'Candy' in schema '[dbo]'
+INSERT INTO [dbo].[UserCandy]
+( -- Columns to insert data into
+ [UserId], [CandyId]
+)
+VALUES
+('1', '1'),
+('1', '3'),
+('2', '4'),
+('2', '5'),
+('3', '6'),
+('3', '7')
+GO
+
+select * from usercandy
