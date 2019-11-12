@@ -102,4 +102,9 @@ VALUES
 ('3', '7')
 GO
 
-select * from usercandy
+select uc.id as UserCandyId, u.FirstName, u.LastName, c.Id as CandyId, c.[Name], c.Manufacturer, c.Category
+from UserCandy as uc
+join [user] as u
+	on uc.UserId = u.Id
+join Candy as c
+	on uc.CandyId = c.Id
